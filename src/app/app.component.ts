@@ -1,17 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Product } from './models/product';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
   links: any[] = [
     { label: 'Home', url: '/home' },
     { label: 'Add Product', url: '/add-product' },
-    { label: 'Product List', url: '/product-list' },
+    { label: 'Product List', url: '/product-list' }
   ];
   links1: string[] = ['Home', 'Add Product', 'Product List'];
+
   ngOnInit(): void {
     this.counter += 5;
   }
@@ -22,8 +25,6 @@ export class AppComponent implements OnInit {
   }
 
   get Counter() {
-    return (
-      this.counter.toString() + (this.counter < 5 ? ' Çok az' : ' Çok fazla')
-    );
+    return this.counter.toString() + (this.counter < 5 ? ' Çok az' : ' Çok fazla');
   }
 }
