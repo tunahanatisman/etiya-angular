@@ -1,43 +1,42 @@
-import { Component, OnInit } from '@angular/core';
-
 import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Product } from 'src/app/models/product';
+import { ProductsService } from 'src/app/services/products/products.service';
 
 @Component({
   selector: 'etiya-product-list',
   templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.css']
+  styleUrls: ['./product-list.component.css'],
 })
 export class ProductListComponent implements OnInit {
-  productList!: Product[];
+  // productList:any[]=[]
+  productList!: any[];
 
-  cartItems: any[] = [];
-  // httpClient!: HttpClient;
+  carItems: any[] = [];
 
-  constructor(private httpClient: HttpClient) {
-    // this.httpClient = httpClient;
+  constructor(private productsService:ProductsService) {
+
   }
 
   ngOnInit(): void {
-    this.getProducts();
-  }
+    setTimeout(() => {
+      this.getProducts()
+    }, 2000);
 
+  }
   getProducts() {
-    //* <> Generic
-    this.httpClient.get<Product[]>('http://localhost:3000/products').subscribe(response => {
-      // [
-      //   {},
-      //   {}
-      // ]
-      this.productList = response;
-      console.log(this.productList);
-    });
+    this.productsService.getList().subscribe(response=>{
+      this.productList=response
+
+    })
   }
 
-  addToCart(productName: string) {
-    let itemToFind = this.cartItems.find(c => c == productName);
+  addToCart(product: Product) {
+    let itemToFind = this.carItems.find((c) => c == product.name);
     if (!itemToFind) {
-      this.cartItems.push(productName);
+      this.carItems.push(product.name);
     }
   }
+
 }

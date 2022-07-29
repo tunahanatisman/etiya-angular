@@ -1,20 +1,22 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Product } from 'src/app/models/product';
 
 @Component({
   selector: 'etiya-product-card',
   templateUrl: './product-card.component.html',
-  styleUrls: ['./product-card.component.css'],
+  styleUrls: ['./product-card.component.css']
 })
 export class ProductCardComponent implements OnInit {
-  @Input() product: any;
-  @Output() onBtnClick = new EventEmitter();
-  constructor() {}
+
+  @Input() product!:Product
+  @Output() onBtnClick =new EventEmitter(); // git şuradaki fonk çagır çalıştır demek
+  constructor() { }
 
   ngOnInit(): void {
-    console.log(this.product);
+
   }
 
-  addToCartEvent(productName: string) {
-    this.onBtnClick.emit(productName);
+  addToCartEvent(){
+    this.onBtnClick.emit(this.product)
   }
 }

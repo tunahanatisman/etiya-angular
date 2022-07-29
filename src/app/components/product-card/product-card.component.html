@@ -1,11 +1,12 @@
-<div class="card" style="width: 18rem">
+<div class="card m-" style="width: 18rem;">
+
     <div class="card-body">
-        <h5 class="card-title">{{ product.contactName }}</h5>
+        <h5 class="card-title">{{product.name}}</h5>
         <p class="card-text">
-            Some quick example text to build on the card title and make up the bulk of the card's content.
+            Price: {{product.unitPrice}} $
         </p>
-        <button (click)="addToCartEvent(product.contactName)" class="btn btn-primary">
-      Sepete Ekle
-    </button>
+        <p>Stock: {{product.unitsInStock}}</p>
+        <p>Quantity per unit: {{product.quantityPerUnit}}</p>
+        <button (click)="addToCartEvent()" class="btn btn-primary">Sepete ekle </button>
     </div>
 </div>
