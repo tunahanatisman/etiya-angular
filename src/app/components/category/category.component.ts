@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Category } from 'src/app/models/category';
+import  Category  from 'src/app/models/category';
 import { CategoriesService } from 'src/app/services/categories/categories.service';
+
 
 @Component({
   selector: 'app-category',
@@ -10,21 +11,25 @@ import { CategoriesService } from 'src/app/services/categories/categories.servic
 export class CategoryComponent implements OnInit {
 
   categoryList!:Category[]
+  loading: boolean = true
 
   constructor(private categoriesService:CategoriesService) { }
 
   ngOnInit(): void {
-    this.getCategory()
+    setTimeout(()=>{
+      this.getCategory()
+    }, 1000);
   }
 
   getCategory(){
-    this.categoriesService.getCategories().subscribe(data=>{
+    this.categoriesService.getList().subscribe(data=>{
       this.categoryList=data
+      this.loading = false;
     })
   }
 
-  getCategoryId(category:Category){
-    console.log(category)
+  getCategoryById(category: Category){
+    console.log(category.id)
   }
 
 }

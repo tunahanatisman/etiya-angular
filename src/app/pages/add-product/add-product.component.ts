@@ -1,3 +1,4 @@
+import { ConditionalExpr } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,18 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddProductComponent implements OnInit {
 
-  email!:string
-  password!:string
+  email! : string;
+  password! : string;
+
   constructor() { }
 
   ngOnInit(): void {
-    this.email = "Tunahan"
-   // this.onEmailChange() ts degiştigi zaman da fonksiyon çalışır
   }
 
-  onEmailChange(event:any){
-    console.log("Deger degişti :"+ event)
-
+  onEmailChange(event:string){
+    console.log(`Değer değişti: ${event}`)
   }
 
 }

@@ -1,12 +1,11 @@
-<div class="card m-" style="width: 18rem;">
-
+<div class="card m-2" style="width: 18rem;height: 33rem;">
+    <img src="./assets/img/food.png">
     <div class="card-body">
         <h5 class="card-title">{{product.name}}</h5>
         <p class="card-text">
-            Price: {{product.unitPrice}} $
-        </p>
+            {{product.unitPrice}} $</p>
         <p>Stock: {{product.unitsInStock}}</p>
-        <p>Quantity per unit: {{product.quantityPerUnit}}</p>
-        <button (click)="addToCartEvent()" class="btn btn-primary">Sepete ekle </button>
+        <p>Quantity Per Unit: {{product.quantityPerUnit}}</p>
+        <button (click)="addToCartEvent()" class="btn btn-dark">Add To Cart</button>
     </div>
 </div>
