@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import {Product} from 'src/app/models/product';
+
+import { Product } from 'src/app/models/product';
 
 @Component({
   selector: 'etiya-product-card',
@@ -7,15 +8,17 @@ import {Product} from 'src/app/models/product';
   styleUrls: ['./product-card.component.css']
 })
 export class ProductCardComponent implements OnInit {
-  @Input() product!:Product;
-  @Output() onBtnClick:any = new EventEmitter();
-  constructor() { }
+  @Input() product!: Product;
+  @Output() onBtnClick = new EventEmitter();
+  onMouseColor: string = 'blue';
+  isCard: boolean = true;
+  onSaleText: string = 'İndirim!!!';
 
-  ngOnInit(): void {
-  }
+  constructor() {}
 
-  addToCartEvent(){
+  ngOnInit(): void {}
+
+  addToCartEvent() {
     this.onBtnClick.emit(this.product);
   }
-
 }

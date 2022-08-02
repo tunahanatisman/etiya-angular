@@ -10,10 +10,16 @@ import { HomepageComponent } from './pages/homepage/homepage.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProductCardComponent } from './components/product-card/product-card.component';
 import {HttpClientModule} from '@angular/common/http';
-import { CategoryComponent } from './components/category/category.component';
+import { CategoryListComponent } from './components/category/category.component';
 import { RegisterComponent } from './pages/register/register.component';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { UpdateCustomerComponent } from './pages/update-customer/update-customer.component'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { CustomerFormComponent } from './pages/customer-form/customer-form.component';
+import { CustomerDashboardComponent } from './pages/customer-dashboard/customer-dashboard.component';
+import { ProductDashboardComponent } from './pages/product-dashboard/product-dashboard.component';
+import { ProductFormComponent } from './pages/product-form/product-form.component';
+import { KdvPipe } from './pipes/kdv/kdv.pipe';
+import { SaleDirective } from './directives/sale/sale.directive';
 
 @NgModule({
   declarations: [
@@ -23,17 +29,23 @@ import { UpdateCustomerComponent } from './pages/update-customer/update-customer
     HomepageComponent,
     NavbarComponent,
     ProductCardComponent,
-    CategoryComponent,
+    CategoryListComponent,
     RegisterComponent,
-    DashboardComponent,
-    UpdateCustomerComponent
+    CustomerFormComponent,
+    CustomerDashboardComponent,
+    ProductDashboardComponent,
+    ProductFormComponent,
+    KdvPipe,
+    SaleDirective
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

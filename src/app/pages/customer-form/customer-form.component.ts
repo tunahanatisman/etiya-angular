@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute,Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Customer } from 'src/app/models/customer';
 import { CustomersService } from 'src/app/services/customers/customers.service';
 
 @Component({
-  selector: 'app-update-customer',
-  templateUrl: './update-customer.component.html',
-  styleUrls: ['./update-customer.component.css']
+  selector: 'app-customer-form',
+  templateUrl: './customer-form.component.html',
+  styleUrls: ['./customer-form.component.css']
 })
-export class UpdateCustomerComponent implements OnInit {
+export class CustomerFormComponent implements OnInit {
 
   customerForm! : FormGroup;
   customer!: Customer
@@ -85,7 +85,7 @@ export class UpdateCustomerComponent implements OnInit {
       ...this.customerForm.value,
     }
 
-    this.customerService.add(customer).subscribe(response =>{
+    this.customerService.add(customer).subscribe(() =>{
       setTimeout(() => {
         this.toastr.success("Customer succesfully add!","Add")
         this.router.navigateByUrl("/dashboard/customers");
