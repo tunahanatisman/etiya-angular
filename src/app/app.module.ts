@@ -20,6 +20,9 @@ import { ProductDashboardComponent } from './pages/product-dashboard/product-das
 import { ProductFormComponent } from './pages/product-form/product-form.component';
 import { KdvPipe } from './pipes/kdv/kdv.pipe';
 import { SaleDirective } from './directives/sale/sale.directive';
+import { FilterPipe } from './pipes/filter/filter.pipe';
+import { ClickProductCardDirective } from './directives/click-product-card/click-product-card.directive';
+
 
 @NgModule({
   declarations: [
@@ -36,7 +39,10 @@ import { SaleDirective } from './directives/sale/sale.directive';
     ProductDashboardComponent,
     ProductFormComponent,
     KdvPipe,
-    SaleDirective
+    SaleDirective,
+    FilterPipe,
+    ClickProductCardDirective
+
   ],
   imports: [
     BrowserModule,
