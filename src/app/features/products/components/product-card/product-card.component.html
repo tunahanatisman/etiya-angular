@@ -1,0 +1,13 @@
+<div class="card m-2" style="width: 18rem">
+    <div [ngClass]="{
+      'card-body': isCard
+    }">
+        <h5 class="card-title">{{ product.name | uppercase }}</h5>
+        <!-- altgr + > -->
+        <p class="card-text" appOnSale [onSaleColor]="onMouseColor" [onSaleText]="onSaleText" [isOnSale]="product.unitPrice > 30">
+            {{ product.unitPrice | kdv: 0.8 | currency }}
+            <!-- <span>İndirim!!!</span> -->
+        </p>
+        <button (click)="addToCartEvent()" class="btn btn-primary">Sepete Ekle</button>
+    </div>
+</div>

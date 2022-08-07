@@ -1,59 +1,33 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { ProductListComponent } from './components/product-list/product-list.component';
-import { AddProductComponent } from './pages/add-product/add-product.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HomepageComponent } from './pages/homepage/homepage.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { ProductCardComponent } from './components/product-card/product-card.component';
-import {HttpClientModule} from '@angular/common/http';
-import { CategoryListComponent } from './components/category/category.component';
-import { RegisterComponent } from './pages/register/register.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ToastrModule } from 'ngx-toastr';
-import { CustomerFormComponent } from './pages/customer-form/customer-form.component';
-import { CustomerDashboardComponent } from './pages/customer-dashboard/customer-dashboard.component';
-import { ProductDashboardComponent } from './pages/product-dashboard/product-dashboard.component';
-import { ProductFormComponent } from './pages/product-form/product-form.component';
-import { KdvPipe } from './pipes/kdv/kdv.pipe';
-import { SaleDirective } from './directives/sale/sale.directive';
-import { FilterPipe } from './pipes/filter/filter.pipe';
-import { ClickProductCardDirective } from './directives/click-product-card/click-product-card.directive';
 
+import { AddProductComponent } from './features/products/pages/add-product/add-product.component';
+import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
+import { BrowserModule } from '@angular/platform-browser';
+import { CoreModule } from './core/core.module';
+import { CustomersModule } from './features/customers/customers.module';
+import { HomepageComponent } from './shared/pages/homepage/homepage/homepage.component';
+import { HttpClientModule } from '@angular/common/http';
+import { NavbarComponent } from './shared/components/navbar/navbar.component';
+import { NgModule } from '@angular/core';
+import { ProductsModule } from './features/products/products.module';
+import { RegisterComponent } from './features/customers/pages/register/register.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    ProductListComponent,
-    AddProductComponent,
-    HomepageComponent,
-    NavbarComponent,
-    ProductCardComponent,
-    CategoryListComponent,
-    RegisterComponent,
-    CustomerFormComponent,
-    CustomerDashboardComponent,
-    ProductDashboardComponent,
-    ProductFormComponent,
-    KdvPipe,
-    SaleDirective,
-    FilterPipe,
-    ClickProductCardDirective
-
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule,
-    ToastrModule.forRoot(),
+    ProductsModule,
+    CoreModule,
+    SharedModule,
+    CustomersModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
