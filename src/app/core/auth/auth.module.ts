@@ -7,9 +7,10 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { StoreModule } from '@ngrx/store';
+import { authReducers } from './store/auth.reducer';
 import { environment } from 'src/environments/environment';
 import { tokenGetter } from './services/auth.service';
-
 @NgModule({
   declarations: [LoginPageComponent],
   imports: [
@@ -23,7 +24,8 @@ import { tokenGetter } from './services/auth.service';
         allowedDomains: [environment.apiUrl],
         disallowedRoutes: []
       }
-    })
+    }),
+    StoreModule.forRoot(authReducers)
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }]
 })

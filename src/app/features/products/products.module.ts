@@ -5,11 +5,9 @@ import { FormsModule } from '@angular/forms';
 import { KdvPipe } from './pipes/kdv/kdv.pipe';
 import { NgModule } from '@angular/core';
 import { ProductCardComponent } from './components/product-card/product-card.component';
-
+import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductsRoutingModule } from './products-routing.module';
 import { SaleDirective } from './directives/sale.directive';
-import { ProductListComponent } from './components/product-list/product-list.component';
-
 
 @NgModule({
   declarations: [
@@ -19,7 +17,7 @@ import { ProductListComponent } from './components/product-list/product-list.com
     SaleDirective,
     KdvPipe
   ],
-  imports: [CommonModule, ProductsRoutingModule, FormsModule,CoreModule],
+  imports: [CommonModule, ProductsRoutingModule, FormsModule, CoreModule],
   exports: [ProductListComponent]
 })
 export class ProductsModule {}

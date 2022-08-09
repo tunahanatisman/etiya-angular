@@ -22,9 +22,9 @@ import { SharedModule } from './shared/shared.module';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    ProductsModule,
     CoreModule,
     SharedModule,
+    ProductsModule,
     CustomersModule
   ],
   providers: [],

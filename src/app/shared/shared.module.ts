@@ -6,7 +6,7 @@ import { ProductsModule } from '../features/products/products.module';
 import { SharedRoutingModule } from './shared-routing.module';
 
 @NgModule({
-  declarations: [NavbarComponent,HomepageComponent],
+  declarations: [NavbarComponent, HomepageComponent],
   imports: [CommonModule, SharedRoutingModule, ProductsModule],
   exports: [NavbarComponent]
 })

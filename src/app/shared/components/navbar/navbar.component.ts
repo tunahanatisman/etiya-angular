@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import { AuthService } from 'src/app/core/auth/services/auth.service';
+import { Observable } from 'rxjs';
+import { TokenUserModel } from 'src/app/core/auth/models/tokenUserModel';
 
 @Component({
   selector: 'etiya-navbar',
@@ -8,7 +10,11 @@ import { AuthService } from 'src/app/core/auth/services/auth.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  constructor(private authService: AuthService) {}
+  tokenUserModel$!: Observable<TokenUserModel | undefined>;
+
+  constructor(private authService: AuthService) {
+    this.tokenUserModel$ = this.authService.tokenUserModel$;
+  }
 
   ngOnInit(): void {}
 
