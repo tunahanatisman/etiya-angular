@@ -1,5 +1,5 @@
-import { ResultModel } from '../../models/resultModel';
+import { ResultModel } from "../../models/resultModel";
 
-export interface UserLoginResponseModel extends ResultModel {
-  access_token: string;
+export interface UserLoginResponseModel extends ResultModel{
+    access_token:string;
 }

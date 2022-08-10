@@ -1,7 +1,7 @@
 import { RouterModule, Routes } from '@angular/router';
 
 import { AddProductComponent } from './pages/add-product/add-product.component';
-import { LoginGuard } from 'src/app/core/auth/guards/login-guard.guard';
+import { LoginGuard } from 'src/app/core/auth/guards/login-guard/login-guard.guard';
 import { NgModule } from '@angular/core';
 
 const routes: Routes = [

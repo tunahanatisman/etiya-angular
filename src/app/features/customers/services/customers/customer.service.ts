@@ -8,6 +8,18 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class CustomersService {
+  update(customer: Customer) {
+    throw new Error('Method not implemented.');
+  }
+  getCustomerById(id: number) {
+    throw new Error('Method not implemented.');
+  }
+  delete(id: number) {
+    throw new Error('Method not implemented.');
+  }
+  getList() {
+    throw new Error('Method not implemented.');
+  }
   apiControllerUrl: string = `${environment.apiUrl}/customers`; // property
 
   constructor(private httpClient: HttpClient) {}

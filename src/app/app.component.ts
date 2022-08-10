@@ -1,33 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 
-import { HttpClient } from '@angular/common/http';
-import { Product } from './features/products/models/product';
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
-  links: any[] = [
-    { label: 'Home', url: '/home' },
-    { label: 'Add Product', url: '/add-product' },
-    { label: 'Product List', url: '/product-list' }
-  ];
-  links1: string[] = ['Home', 'Add Product', 'Product List'];
-
-  constructor() {}
-
+export class AppComponent implements OnInit{
   ngOnInit(): void {
-    this.counter += 5;
+    console.log("app.component init fonksiyonu")
   }
-  counter: number = 0;
+  title = 'etiya-angular';
 
-  increase(count: number = 1) {
+  counter:number = 0;
+
+  increase(count:number = 1){
     this.counter += count;
   }
 
-  get Counter() {
-    return this.counter.toString() + (this.counter < 5 ? ' Çok az' : ' Çok fazla');
+  getCounter(){
+    return(this.counter.toString() + (this.counter <5 ? ' Çok az' : ' Çok fazla')
+    );
   }
+
 }

@@ -1,11 +1,21 @@
-import { CommonModule } from '@angular/common';
-import { CustomersRoutingModule } from './customers-routing.module';
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+import { CustomersRoutingModule } from './customers-routing.module';
+import { CustomerFormComponent } from './pages/customer-form/customer-form/customer-form.component';
+import { CustomerDashboardComponent } from './pages/customer-dashboard/customer-dashboard/customer-dashboard.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { RegisterComponent } from './pages/register/register.component';
+
 
 @NgModule({
-  declarations: [RegisterComponent],
-  imports: [CommonModule, CustomersRoutingModule, ReactiveFormsModule]
+  declarations: [
+    CustomerFormComponent,
+    CustomerDashboardComponent,
+
+  ],
+  imports: [
+    CommonModule,
+    CustomersRoutingModule,
+    ReactiveFormsModule ]
 })
-export class CustomersModule {}
+export class CustomersModule { }

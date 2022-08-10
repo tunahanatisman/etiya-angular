@@ -1,44 +1,49 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
-import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { UserForLoginModel } from '../../models/userForLoginModel';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   templateUrl: './login-page.component.html',
   styleUrls: ['./login-page.component.css']
 })
 export class LoginPageComponent implements OnInit {
-  loginForm!: FormGroup;
 
-  constructor(
-    private formBuilder: FormBuilder,
-    private authService: AuthService,
-    private router: Router
-  ) {}
+  loginForm! : FormGroup
+
+  constructor(private formBuilder:FormBuilder,private authService:AuthService,private router:Router,private toastrService:ToastrService) { }
 
   ngOnInit(): void {
     this.createLoginForm();
   }
 
-  createLoginForm() {
+  createLoginForm(){
     this.loginForm = this.formBuilder.group({
-      userName: ['', Validators.required],
-      password: ['', Validators.required]
-    });
+      userName:['', Validators.required],
+      password:['', Validators.required]
+    })
+
   }
 
-  login() {
+  login(){
     const userForLoginModel: UserForLoginModel = {
-      // userName: this.loginForm.get('userName')!.value,
-      // password: this.loginForm.get('password')!.value,
-      ...this.loginForm.value
-    };
+      // userName: this.loginForm.get('userName')!.value,  //null değer olabilir bu yüzden ünlem koyduk
+      // password: this.loginForm.get('password')!.value
 
-    this.authService.login(userForLoginModel).subscribe(response => {
+      ...this.loginForm.value
+
+    }
+    this.authService.login(userForLoginModel).subscribe(response =>{
       this.authService.saveAuth(response);
-      this.router.navigateByUrl('');
-    });
+      this.toastrService.success("Login successfull!")
+      this.router.navigateByUrl('')
+
+
+      console.log(this.authService.isAuthhenticated)
+    })
+
   }
+
 }
